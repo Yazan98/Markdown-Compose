@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.ExperimentalUnitApi
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.TextUnitType
@@ -15,9 +16,10 @@ import com.yazantarifi.compose.library.MarkdownKeysManager
 fun MarkdownStyledTextComponentComposable(
     text: String,
     layer: String,
-    textSize: Float? = null
+    textSize: Float? = null,
+    color: Color
 ) {
-    Text(text = text, modifier = Modifier.padding(5.dp), fontSize = TextUnit(textSize ?: getFontSize(layer), TextUnitType.Sp))
+    Text(color = color, text = text, modifier = Modifier.padding(5.dp), fontSize = TextUnit(textSize ?: getFontSize(layer), TextUnitType.Sp))
 }
 
 fun getFontSize(layer: String): Float {

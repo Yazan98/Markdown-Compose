@@ -16,7 +16,7 @@ fun MarkdownViewComposable(
     modifier: Modifier,
     content: String,
     config: MarkdownConfig,
-    onLinkClickListener: (String) -> Unit
+    onLinkClickListener: (String, Int) -> Unit
 ) {
     val parser = MarkdownParser()
         .setMarkdownConfig(config)
@@ -28,13 +28,13 @@ fun MarkdownViewComposable(
         if (isScrollEnabled) {
             LazyColumn {
                 items(parser) { item ->
-                    RenderComponent(item, onLinkClickListener)
+                    RenderComponent(item, config, onLinkClickListener)
                 }
             }
         } else {
             Column {
                 parser.forEach {
-                    RenderComponent(it, onLinkClickListener)
+                    RenderComponent(it, config, onLinkClickListener)
                 }
             }
         }
@@ -42,17 +42,17 @@ fun MarkdownViewComposable(
 }
 
 @Composable
-private fun RenderComponent(item: MarkdownComponent, onLinkClickListener: (String) -> Unit) {
+private fun RenderComponent(item: MarkdownComponent, config: MarkdownConfig, onLinkClickListener: (String, Int) -> Unit) {
     when (item) {
-        is MarkdownCodeComponent -> MarkdownCodeComponentComposable(text = item.codeBlock)
-        is MarkdownItalicTextComponent -> MarkdownItalicTextComponentComposable(text = item.text)
-        is MarkdownBoldTextComponent -> MarkdownBoldTextComponentComposable(text = item.text)
-        is MarkdownLinkComponent -> MarkdownLinkComponentComposable(item.text, item.link, onLinkClickListener)
+        is MarkdownCodeComponent -> MarkdownCodeComponentComposable(text = item.codeBlock, config.colors?.get(MarkdownConfig.CODE_BACKGROUND_COLOR) ?: Color.Gray, config.colors?.get(MarkdownConfig.CODE_BLOCK_TEXT_COLOR) ?: Color.White)
+        is MarkdownItalicTextComponent -> MarkdownItalicTextComponentComposable(text = item.text, config.colors?.get(MarkdownConfig.TEXT_COLOR) ?: Color.Black)
+        is MarkdownBoldTextComponent -> MarkdownBoldTextComponentComposable(text = item.text, config.colors?.get(MarkdownConfig.TEXT_COLOR) ?: Color.Black)
+        is MarkdownLinkComponent -> MarkdownLinkComponentComposable(item.text, item.link, config.isLinksClickable, onLinkClickListener)
         is MarkdownCheckBoxComponent -> MarkdownCheckBoxComponentComposable(item.text, item.isChecked)
         is MarkdownShieldComponent -> MarkdownShieldComponentComposable(item.url)
-        is MarkdownTextComponent -> MarkdownTextComponentComposable(item.text, Color.Black)
+        is MarkdownTextComponent -> MarkdownTextComponentComposable(item.text, config.colors?.get(MarkdownConfig.TEXT_COLOR) ?: Color.Black)
         is MarkdownSpaceComponent -> MarkDownSpaceComponentComposable()
-        is MarkdownImageComponent -> MarkdownImageComponentComposable(item.image)
-        is MarkdownStyledTextComponent -> MarkdownStyledTextComponentComposable(item.text, item.layer)
+        is MarkdownImageComponent -> MarkdownImageComponentComposable(item.image, config.isImagesClickable, onLinkClickListener)
+        is MarkdownStyledTextComponent -> MarkdownStyledTextComponentComposable(item.text, item.layer, color = config.colors?.get(MarkdownConfig.HASH_TEXT_COLOR) ?: Color.Black)
     }
 }

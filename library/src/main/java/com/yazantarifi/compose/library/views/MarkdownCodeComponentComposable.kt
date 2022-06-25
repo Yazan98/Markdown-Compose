@@ -15,14 +15,14 @@ import androidx.compose.ui.unit.dp
 
 @OptIn(ExperimentalUnitApi::class)
 @Composable
-fun MarkdownCodeComponentComposable(text: String) {
+fun MarkdownCodeComponentComposable(text: String, backgroundColor: Color, textColor: Color) {
     Column {
         Spacer(modifier = Modifier.height(10.dp))
         Box(
             modifier = Modifier
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(8.dp))
-                .background(Color.Gray)
+                .background(backgroundColor)
         ) {
             Box(modifier = Modifier.padding(10.dp)) {
                 Text(
@@ -30,8 +30,8 @@ fun MarkdownCodeComponentComposable(text: String) {
                     modifier = Modifier
                         .wrapContentHeight()
                         .wrapContentWidth(),
-                    fontSize = TextUnit(13f, TextUnitType.Sp)
-
+                    fontSize = TextUnit(13f, TextUnitType.Sp),
+                    color = textColor
                 )
             }
         }

@@ -13,5 +13,10 @@ import androidx.compose.ui.unit.dp
 @OptIn(ExperimentalUnitApi::class)
 @Composable
 fun MarkdownTextComponentComposable(text: String, color: Color) {
-    Text(text = text, fontSize = TextUnit(13f, TextUnitType.Sp), color = color, modifier = Modifier.padding(5.dp))
+    Text(
+        text = text,
+        fontSize = TextUnit(13f, TextUnitType.Sp),
+        color = color,
+        modifier = Modifier.padding(5.dp)
+    )
 }

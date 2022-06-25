@@ -89,8 +89,8 @@ class MainActivity : ComponentActivity() {
                         "Copyright (C) 2019 Vanite is An Open Source Library (Licensed under the Apache License, Version 2.0)\n" +
                         "\n",
                     config = MarkdownConfig()
-                ) {
-                    println("Link Clicked ::: $it")
+                ) { link, type ->
+                    println("Link Clicked ::: $link")
                 }
             }
         }
