@@ -157,7 +157,7 @@ open class MarkdownParser : MarkdownParserImplementation {
                 continue
             }
 
-            if (!isComponentTriggered) {
+            if (!isComponentTriggered && !isCodeBlock) {
                 contentComponents.add(MarkdownTextComponent(line))
             }
         }
