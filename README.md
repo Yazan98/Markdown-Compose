@@ -1,8 +1,8 @@
-# MarkdownCompose
+# Markdown Render Composable
 
 Android Library To Render Markdown Strings Inside Jetpack Compose Applications
 
-Build With Native Jetpack Compose Composables
+Built With Native Jetpack Compose Composables
 
 ## Library Versions
 1. Jetpack Compose : 1.3.1
