@@ -34,4 +34,7 @@ object MarkdownKeysManager {
     const val CHECK_BOX_FILL = "- [X]"
     const val CHECK_BOX_FILL_2 = "- [x]"
 
+    const val BOLD = "**"
+    const val ITALIC = "*"
+
 }

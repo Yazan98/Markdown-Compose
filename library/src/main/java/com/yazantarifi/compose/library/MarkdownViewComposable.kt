@@ -44,6 +44,8 @@ fun MarkdownViewComposable(
 @Composable
 private fun RenderComponent(item: MarkdownComponent, onLinkClickListener: (String) -> Unit) {
     when (item) {
+        is MarkdownItalicTextComponent -> MarkdownItalicTextComponentComposable(text = item.text)
+        is MarkdownBoldTextComponent -> MarkdownBoldTextComponentComposable(text = item.text)
         is MarkdownLinkComponent -> MarkdownLinkComponentComposable(item.text, item.link, onLinkClickListener)
         is MarkdownCheckBoxComponent -> MarkdownCheckBoxComponentComposable(item.text, item.isChecked)
         is MarkdownShieldComponent -> MarkdownShieldComponentComposable(item.url)

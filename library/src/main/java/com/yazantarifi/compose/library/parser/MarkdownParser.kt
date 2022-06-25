@@ -129,13 +129,23 @@ open class MarkdownParser : MarkdownParserImplementation {
                 isComponentTriggered = true
             }
 
+            if (line.contains(MarkdownKeysManager.BOLD)) {
+                isComponentTriggered = true
+                contentComponents.add(MarkdownBoldTextComponent(line.replace(MarkdownKeysManager.BOLD, "")))
+            }
+
+            if (line.contains(MarkdownKeysManager.ITALIC) && !isComponentTriggered) {
+                isComponentTriggered = true
+                contentComponents.add(MarkdownItalicTextComponent(line.replace(MarkdownKeysManager.BOLD, "")))
+            }
+
             if (!isComponentTriggered) {
                 contentComponents.add(MarkdownTextComponent(line))
             }
         }
     }
 
-    fun isImagePath(imageUrl: String): Boolean {
+    private fun isImagePath(imageUrl: String): Boolean {
         return imageUrl.contains(".png") || imageUrl.contains(".jpg") || imageUrl.contains(".jpeg") || imageUrl.contains(".webp") || imageUrl.contains(".bmp")
     }
 
