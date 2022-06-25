@@ -3,17 +3,12 @@ package com.yazantarifi.compose.markdown
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.yazantarifi.compose.library.MarkdownComposable
+import com.yazantarifi.compose.library.MarkdownConfig
+import com.yazantarifi.compose.library.MarkdownViewComposable
 import com.yazantarifi.compose.markdown.ui.theme.MarkdownComposeTheme
 
 class MainActivity : ComponentActivity() {
@@ -21,7 +16,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MarkdownComposeTheme {
-                MarkdownComposable(Modifier.fillMaxWidth().padding(10.dp), "\n" +
+                MarkdownViewComposable(Modifier.fillMaxWidth().padding(10.dp), "\n" +
                         "![158914920-32310149-7f76-4802-9745-6c5ecf05f335](https://user-images.githubusercontent.com/29167110/162568490-b0f18dae-6e56-485c-8c43-958a6104da92.png)\n" +
                         "\n" +
                         "\n" +
@@ -71,7 +66,8 @@ class MainActivity : ComponentActivity() {
                         "\n" +
                         "# License\n" +
                         "\n" +
-                        "Copyright (C) 2022 Legora is An Open Source Library (Licensed under the MIT License)\n")
+                        "Copyright (C) 2022 Legora is An Open Source Library (Licensed under the MIT License)\n", MarkdownConfig()
+                )
             }
         }
     }
