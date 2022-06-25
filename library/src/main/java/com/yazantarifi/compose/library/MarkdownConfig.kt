@@ -8,7 +8,8 @@ data class MarkdownConfig(
     val backgroundColor: Color? = null,
     val paddingValue: Int? = 10,
     val isLinksClickable: Boolean = false,
-    val colors: HashMap<String, Color>? = null
+    val colors: HashMap<String, Color>? = null,
+    val isScrollEnabled: Boolean = false
 ) {
 
 }
