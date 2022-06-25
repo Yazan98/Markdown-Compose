@@ -14,7 +14,8 @@ import com.yazantarifi.compose.library.views.*
 fun MarkdownViewComposable(
     modifier: Modifier,
     content: String,
-    config: MarkdownConfig
+    config: MarkdownConfig,
+    onLinkClickListener: (String) -> Unit
 ) {
     val parser = MarkdownParser()
         .setMarkdownConfig(config)
@@ -25,6 +26,8 @@ fun MarkdownViewComposable(
         LazyColumn {
             items(parser) { item ->
                 when (item) {
+                    is MarkdownLinkComponent -> MarkdownLinkComponentComposable(item.text, item.link, onLinkClickListener)
+                    is MarkdownCheckBoxComponent -> MarkdownCheckBoxComponentComposable(item.text, item.isChecked)
                     is MarkdownShieldComponent -> MarkdownShieldComponentComposable(item.url)
                     is MarkdownTextComponent -> MarkdownTextComponentComposable(item.text, Color.Black)
                     is MarkdownSpaceComponent -> MarkDownSpaceComponentComposable()

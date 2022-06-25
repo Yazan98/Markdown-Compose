@@ -67,7 +67,9 @@ class MainActivity : ComponentActivity() {
                         "# License\n" +
                         "\n" +
                         "Copyright (C) 2022 Legora is An Open Source Library (Licensed under the MIT License)\n", MarkdownConfig()
-                )
+                ) {
+                    println("Link Clicked ::: $it")
+                }
             }
         }
     }

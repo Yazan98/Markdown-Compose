@@ -17,7 +17,7 @@ fun MarkdownStyledTextComponentComposable(
     layer: String,
     textSize: Float? = null
 ) {
-    Text(text = text, modifier = Modifier.padding(10.dp), fontSize = TextUnit(textSize ?: getFontSize(layer), TextUnitType.Sp))
+    Text(text = text, modifier = Modifier.padding(5.dp), fontSize = TextUnit(textSize ?: getFontSize(layer), TextUnitType.Sp))
 }
 
 fun getFontSize(layer: String): Float {

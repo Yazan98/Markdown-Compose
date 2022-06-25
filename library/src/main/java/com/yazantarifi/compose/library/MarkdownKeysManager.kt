@@ -26,6 +26,9 @@ object MarkdownKeysManager {
     const val IMAGE_END = "]("
     const val IMAGE_WITHOUT_TAG_KEY = "![]("
 
+    const val LINK_START = "["
+    const val LINK_CONTAINS = "]("
+
     const val CHECK_BOX_EMPTY = "- [ ]"
     const val CHECK_BOX_EMPTY_2 = "- []"
     const val CHECK_BOX_FILL = "- [X]"

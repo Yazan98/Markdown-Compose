@@ -46,7 +46,7 @@ open class MarkdownParser : MarkdownParserImplementation {
             }
 
             line = line.trim()
-            if (line.startsWith(MarkdownKeysManager.TEXT_H1) || line.startsWith(MarkdownKeysManager.TEXT_HASH)) {
+            if ((line.startsWith(MarkdownKeysManager.TEXT_H1) || line.startsWith(MarkdownKeysManager.TEXT_HASH)) && !line.contains("##")) {
                 isComponentTriggered = true
                 contentComponents.add(MarkdownStyledTextComponent(line.replace(MarkdownKeysManager.TEXT_H1, "").replace(MarkdownKeysManager.TEXT_HASH, ""), MarkdownKeysManager.TEXT_HASH))
             }
@@ -119,6 +119,14 @@ open class MarkdownParser : MarkdownParserImplementation {
             if (line.startsWith(MarkdownKeysManager.CHECK_BOX_FILL_2)) {
                 isComponentTriggered = true
                 contentComponents.add(MarkdownCheckBoxComponent(true, line.replace(MarkdownKeysManager.CHECK_BOX_FILL_2, "")))
+            }
+
+            if (line.startsWith(MarkdownKeysManager.LINK_START) && line.contains(MarkdownKeysManager.LINK_CONTAINS)) {
+                val fragments = line.split(MarkdownKeysManager.LINK_CONTAINS)
+                val text = fragments.get(0).replace("[", "")
+                val link = fragments.get(1).replace(")", "")
+                contentComponents.add(MarkdownLinkComponent(text, link))
+                isComponentTriggered = true
             }
 
             if (!isComponentTriggered) {
