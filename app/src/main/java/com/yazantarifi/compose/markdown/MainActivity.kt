@@ -16,57 +16,79 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MarkdownComposeTheme {
-                MarkdownViewComposable(Modifier.fillMaxWidth().padding(10.dp), "\n" +
-                        "![158914920-32310149-7f76-4802-9745-6c5ecf05f335](https://user-images.githubusercontent.com/29167110/162568490-b0f18dae-6e56-485c-8c43-958a6104da92.png)\n" +
+                MarkdownViewComposable(Modifier.fillMaxWidth().padding(10.dp), "# Vanite\n" +
+                        "\n" +
+                        "![New Project](https://user-images.githubusercontent.com/29167110/158914920-32310149-7f76-4802-9745-6c5ecf05f335.png)\n" +
                         "\n" +
                         "\n" +
-                        "![](https://img.shields.io/badge/Version-1.0.0--alpha-brightgreen)\n" +
+                        "![](https://img.shields.io/badge/Project%20Status-Under%20Development-blue)\n" +
+                        "[![Maven Central](https://img.shields.io/maven-central/v/com.yazantarifi/vanite.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.yazantarifi%22%20AND%20a:%22vanite%22)\n" +
+                        "![](https://img.shields.io/badge/License-Apache%202.0-yellow)\n" +
                         "![](https://img.shields.io/badge/Language-Kotlin-orange)\n" +
-                        "![](https://img.shields.io/badge/Status-Under%20Development-green)\n" +
-                        "\n" +
-                        "# Legora\n" +
-                        "\n" +
-                        "Legora is an Open Source Project To Generate Applications With Ready Configurations and Project Starter to Start Your Project Without Configurations\n" +
-                        "This Application Built with Jetpack Compose To Be able to work on Mac, Windows, Linux\n" +
-                        "\n" +
-                        "> The Application in Alpha Version and it's not Supporting a lot of Projects to Generate\n" +
-                        "\n" +
-                        "## Supported Frameworks\n" +
-                        "- [X] Android Applications\n" +
-                        "- [X] Android Libraries (Maven Central)\n" +
-                        "- [X] Spring Boot Applications (Kotlin)\n" +
-                        "- [X] React.js Applications (JavaScript)\n" +
-                        "- [X] Next.js Applications (Typescript)\n" +
-                        "- [ ] Jetpack Compose Desktop\n" +
-                        "- [ ] React.js TypeScript\n" +
-                        "- [ ] React.js Redux, Material UI\n" +
-                        "- [ ] Next.js Material UI\n" +
-                        "- [ ] Ktor Framework\n" +
-                        "- [ ] Nest.js Applications (MongoDB)\n" +
-                        "- [ ] Android Applications Jetpack Compose\n" +
-                        "- [ ] Android Studio Plugin\n" +
-                        "- [ ] Gradle Plugins\n" +
-                        "- [ ] CLI (TypeScript)\n" +
-                        "- [ ] CLI (JavaScript)\n" +
-                        "- [ ] Express.js (JavaScript)\n" +
+                        "![](https://img.shields.io/badge/Android%20Status-AndroidX-green)\n" +
                         "\n" +
                         "\n" +
-                        "# Application Screenshot\n" +
+                        "# What is Vanite\n" +
                         "\n" +
-                        "![New Project (15)](https://user-images.githubusercontent.com/29167110/162568598-19df4e84-99ac-46a9-a0c5-9faea55c1481.png)\n" +
+                        "Vanite is an Open Source Library That Focus on Providing The Base Code of Android Applications with Utility Classes For Common Use Cases\n" +
+                        "Under Multi Modular Architecture From Managing the State to Utils Classes to Providing Base Code in Base ViewModels, Fragments, Activities\n" +
                         "\n" +
-                        "## Application Roadmap\n" +
-                        "1. Alpha Version Containing the Application Alpha Build With General Configuration Files\n" +
-                        "2. Beta Version Depending on Templating Files With Template Parser\n" +
-                        "3. Beta-2 Support More Projects\n" +
-                        "4. Version 1.0.0 Stable Support All Projects Mentioned in Supported Frameworks\n" +
+                        "### Multi Modular Application\n" +
+                        "The Library Focus on Main Modules\n" +
+                        "1. UI\n" +
+                        "2. Data\n" +
+                        "3. Domain\n" +
                         "\n" +
-                        "## Download\n" +
-                        "[Alpha Version Download Link](https://github.com/legora-io/Legora/releases/tag/1.0.0-alpha)\n" +
+                        "The UI Layer Contact with Domain to handle the logic from ViewModels, Use Cases, etc and This Layer Contact with Data Layer to get the Data from Repositories, this Layers could be provided by Modules or Packages because vanite is Built based on Modules and you can add the Required Dependency to one Module as you want\n" +
+                        "\n" +
+                        "\n" +
+                        "### Application Flow Components\n" +
+                        "1. Actions\n" +
+                        "2. State\n" +
+                        "3. ViewModel\n" +
+                        "4. User Interface\n" +
+                        "\n" +
+                        "The UI Contact With ViewModel By execute Method Only and Send to ViewModel Actions, Each Action Should Execute specific Code or move to Use Case\n" +
+                        "Then ViewModel Respond to View With New State For This ViewModel\n" +
+                        "\n" +
+                        "Also to Provide Utility Classes As much as Possible for Common Use Cases\n" +
+                        "\n" +
+                        "### Setup\n" +
+                        "\n" +
+                        "1. The Build.gradle Root File\n" +
+                        "\n" +
+                        "```\n" +
+                        "allprojects {\n" +
+                        "    repositories {\n" +
+                        "        mavenCentral()\n" +
+                        "    }\n" +
+                        "}\n" +
+                        "```\n" +
+                        "\n" +
+                        "2. Application Module\n" +
+                        "\n" +
+                        "```\n" +
+                        "dependencies {\n" +
+                        "   implementation 'com.yazantarifi:Vanite:1.0.0'\n" +
+                        "   implementation 'com.yazantarifi:Vanite-data:1.0.0'\n" +
+                        "   implementation 'com.yazantarifi:Vanite-utils:1.0.0'\n" +
+                        "   implementation 'com.yazantarifi:Vanite-ui-binding:1.0.0'\n" +
+                        "   implementation 'com.yazantarifi:Vanite-ui:1.0.0'\n" +
+                        "   implementation 'com.yazantarifi:Vanite-prefs:1.0.0'\n" +
+                        "   implementation 'com.yazantarifi:Vanite-permissions:1.0.0'\n" +
+                        "   implementation 'com.yazantarifi:Vanite-log:1.0.0'\n" +
+                        "   implementation 'com.yazantarifi:Vanite-firebase:1.0.0'\n" +
+                        "}\n" +
+                        "```\n" +
+                        "\n" +
+                        "# Vanite Documentation\n" +
+                        "Coming Soon Vanite still Under Development\n" +
                         "\n" +
                         "# License\n" +
                         "\n" +
-                        "Copyright (C) 2022 Legora is An Open Source Library (Licensed under the MIT License)\n", MarkdownConfig()
+                        "Copyright (C) 2019 Vanite is An Open Source Library (Licensed under the Apache License, Version 2.0)\n" +
+                        "\n",
+                    config = MarkdownConfig()
                 ) {
                     println("Link Clicked ::: $it")
                 }

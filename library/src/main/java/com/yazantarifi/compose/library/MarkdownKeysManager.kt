@@ -36,5 +36,6 @@ object MarkdownKeysManager {
 
     const val BOLD = "**"
     const val ITALIC = "*"
+    const val CODE_BLOCK = "```"
 
 }

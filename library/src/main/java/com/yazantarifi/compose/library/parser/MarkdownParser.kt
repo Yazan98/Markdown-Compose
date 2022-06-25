@@ -38,6 +38,8 @@ open class MarkdownParser : MarkdownParserImplementation {
 
         val contentBufferReader = BufferedReader(StringReader(currentContent))
         var line: String = ""
+        var isCodeBlock = false
+        val codeBlock = MarkdownCodeComponent("")
         while (contentBufferReader.readLine().also { line = it ?: "" } != null) {
             var isComponentTriggered = false
             if (line.isEmpty()) {
@@ -45,7 +47,18 @@ open class MarkdownParser : MarkdownParserImplementation {
                 continue
             }
 
-            line = line.trim()
+            if (!isCodeBlock) {
+                line = line.trim()
+            } else {
+                codeBlock.codeBlock += line + "\n"
+            }
+
+            if (line.contains(MarkdownKeysManager.CODE_BLOCK) && isCodeBlock) {
+                isCodeBlock = false
+                contentComponents.add(codeBlock)
+                continue
+            }
+
             if ((line.startsWith(MarkdownKeysManager.TEXT_H1) || line.startsWith(MarkdownKeysManager.TEXT_HASH)) && !line.contains("##")) {
                 isComponentTriggered = true
                 contentComponents.add(MarkdownStyledTextComponent(line.replace(MarkdownKeysManager.TEXT_H1, "").replace(MarkdownKeysManager.TEXT_HASH, ""), MarkdownKeysManager.TEXT_HASH))
@@ -137,6 +150,11 @@ open class MarkdownParser : MarkdownParserImplementation {
             if (line.contains(MarkdownKeysManager.ITALIC) && !isComponentTriggered) {
                 isComponentTriggered = true
                 contentComponents.add(MarkdownItalicTextComponent(line.replace(MarkdownKeysManager.BOLD, "")))
+            }
+
+            if (line.contains(MarkdownKeysManager.CODE_BLOCK) && !isCodeBlock) {
+                isCodeBlock = true
+                continue
             }
 
             if (!isComponentTriggered) {
