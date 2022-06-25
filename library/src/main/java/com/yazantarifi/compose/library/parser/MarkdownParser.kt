@@ -59,34 +59,34 @@ open class MarkdownParser : MarkdownParserImplementation {
                 continue
             }
 
-            if ((line.startsWith(MarkdownKeysManager.TEXT_H1) || line.startsWith(MarkdownKeysManager.TEXT_HASH)) && !line.contains("##")) {
+            if (line.startsWith(MarkdownKeysManager.TEXT_H6) || line.startsWith(MarkdownKeysManager.TEXT_HASH_6)) {
                 isComponentTriggered = true
-                contentComponents.add(MarkdownStyledTextComponent(line.replace(MarkdownKeysManager.TEXT_H1, "").replace(MarkdownKeysManager.TEXT_HASH, ""), MarkdownKeysManager.TEXT_HASH))
+                contentComponents.add(MarkdownStyledTextComponent(line.replace(MarkdownKeysManager.TEXT_H6, "").replace(MarkdownKeysManager.TEXT_HASH_6, ""), MarkdownKeysManager.TEXT_HASH_6))
             }
 
-            if (line.startsWith(MarkdownKeysManager.TEXT_H2) || line.startsWith(MarkdownKeysManager.TEXT_HASH_2)) {
-                isComponentTriggered = true
-                contentComponents.add(MarkdownStyledTextComponent(line.replace(MarkdownKeysManager.TEXT_H2, "").replace(MarkdownKeysManager.TEXT_HASH_2, ""), MarkdownKeysManager.TEXT_HASH_2))
-            }
-
-            if (line.startsWith(MarkdownKeysManager.TEXT_H3) || line.startsWith(MarkdownKeysManager.TEXT_HASH_3)) {
-                isComponentTriggered = true
-                contentComponents.add(MarkdownStyledTextComponent(line.replace(MarkdownKeysManager.TEXT_H3, "").replace(MarkdownKeysManager.TEXT_HASH_3, ""), MarkdownKeysManager.TEXT_HASH_3))
-            }
-
-            if (line.startsWith(MarkdownKeysManager.TEXT_H4) || line.startsWith(MarkdownKeysManager.TEXT_HASH_4)) {
-                isComponentTriggered = true
-                contentComponents.add(MarkdownStyledTextComponent(line.replace(MarkdownKeysManager.TEXT_H4, "").replace(MarkdownKeysManager.TEXT_HASH_4, ""), MarkdownKeysManager.TEXT_HASH_4))
-            }
-
-            if (line.startsWith(MarkdownKeysManager.TEXT_H5) || line.startsWith(MarkdownKeysManager.TEXT_HASH_5)) {
+            if (line.startsWith(MarkdownKeysManager.TEXT_H5) || line.startsWith(MarkdownKeysManager.TEXT_HASH_5) && !isComponentTriggered) {
                 isComponentTriggered = true
                 contentComponents.add(MarkdownStyledTextComponent(line.replace(MarkdownKeysManager.TEXT_H5, "").replace(MarkdownKeysManager.TEXT_HASH_5, ""), MarkdownKeysManager.TEXT_HASH_5))
             }
 
-            if (line.startsWith(MarkdownKeysManager.TEXT_H6) || line.startsWith(MarkdownKeysManager.TEXT_HASH_6)) {
+            if (line.startsWith(MarkdownKeysManager.TEXT_H4) || line.startsWith(MarkdownKeysManager.TEXT_HASH_4) && !isComponentTriggered) {
                 isComponentTriggered = true
-                contentComponents.add(MarkdownStyledTextComponent(line.replace(MarkdownKeysManager.TEXT_H6, "").replace(MarkdownKeysManager.TEXT_HASH_6, ""), MarkdownKeysManager.TEXT_HASH_6))
+                contentComponents.add(MarkdownStyledTextComponent(line.replace(MarkdownKeysManager.TEXT_H4, "").replace(MarkdownKeysManager.TEXT_HASH_4, ""), MarkdownKeysManager.TEXT_HASH_4))
+            }
+
+            if (line.startsWith(MarkdownKeysManager.TEXT_H3) || line.startsWith(MarkdownKeysManager.TEXT_HASH_3) && !isComponentTriggered) {
+                isComponentTriggered = true
+                contentComponents.add(MarkdownStyledTextComponent(line.replace(MarkdownKeysManager.TEXT_H3, "").replace(MarkdownKeysManager.TEXT_HASH_3, ""), MarkdownKeysManager.TEXT_HASH_3))
+            }
+
+            if (line.startsWith(MarkdownKeysManager.TEXT_H2) || line.startsWith(MarkdownKeysManager.TEXT_HASH_2) && !isComponentTriggered) {
+                isComponentTriggered = true
+                contentComponents.add(MarkdownStyledTextComponent(line.replace(MarkdownKeysManager.TEXT_H2, "").replace(MarkdownKeysManager.TEXT_HASH_2, ""), MarkdownKeysManager.TEXT_HASH_2))
+            }
+
+            if ((line.startsWith(MarkdownKeysManager.TEXT_H1) || line.startsWith(MarkdownKeysManager.TEXT_HASH)) && !line.contains("##") && !isComponentTriggered) {
+                isComponentTriggered = true
+                contentComponents.add(MarkdownStyledTextComponent(line.replace(MarkdownKeysManager.TEXT_H1, "").replace(MarkdownKeysManager.TEXT_HASH, ""), MarkdownKeysManager.TEXT_HASH))
             }
 
             if (line.startsWith(MarkdownKeysManager.IMAGE_START) && line.contains(MarkdownKeysManager.IMAGE_END)) {
