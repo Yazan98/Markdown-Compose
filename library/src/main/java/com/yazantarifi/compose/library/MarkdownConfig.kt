@@ -3,7 +3,6 @@ package com.yazantarifi.compose.library
 import androidx.compose.ui.graphics.Color
 
 data class MarkdownConfig(
-    val textSizes: HashMap<String, Float>? = null,
     val isLinksClickable: Boolean = false,
     val isImagesClickable: Boolean = false,
     val colors: HashMap<String, Color>? = null,
