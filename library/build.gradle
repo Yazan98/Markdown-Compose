@@ -7,7 +7,7 @@ apply from: "${rootProject.projectDir}/scripts/publish-module.gradle"
 
 ext {
     PUBLISH_GROUP_ID = 'com.yazantarifi'
-    PUBLISH_VERSION = '1.0.3'
+    PUBLISH_VERSION = '1.0.4'
     PUBLISH_ARTIFACT_ID = 'markdown-compose'
     PUBLISH_DESCRIPTION = 'Android Library To Render Markdown Content in Jetpack Compose View'
     PUBLISH_URL = 'https://github.com/Yazan98/MarkdownCompose'

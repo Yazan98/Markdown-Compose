@@ -112,6 +112,12 @@ MarkdownViewComposable(
 9. Links
 10. Space
 
+## Publish Commands
+```
+gradle build
+gradle library:publishReleasePublicationToSonatypeRepository  
+```
+
 ## License
 
 Copyright (C) 2022 Markdown Compose is An Open Source Library (Licensed under the Apache License, Version 2.0)
