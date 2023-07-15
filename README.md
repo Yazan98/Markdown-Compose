@@ -23,7 +23,7 @@ allprojects {
 
 ```
 dependencies {
-    implementation "com.yazantarifi:markdown-compose:1.0.2"
+    implementation "com.yazantarifi:markdown-compose:1.0.4"
 }
 ```
 
