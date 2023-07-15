@@ -39,7 +39,7 @@ open class MarkdownParser : MarkdownParserImplementation {
         val contentBufferReader = BufferedReader(StringReader(currentContent))
         var line: String = ""
         var isCodeBlock = false
-        val codeBlock = MarkdownCodeComponent("")
+        var codeBlock = MarkdownCodeComponent("")
         while (contentBufferReader.readLine().also { line = it ?: "" } != null) {
             var isComponentTriggered = false
             if (line.isEmpty()) {
@@ -56,6 +56,10 @@ open class MarkdownParser : MarkdownParserImplementation {
             if (line.contains(MarkdownKeysManager.CODE_BLOCK) && isCodeBlock) {
                 isCodeBlock = false
                 contentComponents.add(codeBlock)
+
+                line = ""
+                codeBlock = MarkdownCodeComponent("")
+
                 continue
             }
 

@@ -81,6 +81,56 @@ class MainActivity : ComponentActivity() {
                         "}\n" +
                         "```\n" +
                         "\n" +
+                        "\n" +
+                        "```\n" +
+                        "allprojects {\n" +
+                        "    repositories {\n" +
+                        "        mavenCentral()\n" +
+                        "    }\n" +
+                        "}\n" +
+                        "```\n" +
+                        "\n" +
+                        "2. Application Module\n" +
+                        "\n" +
+                        "```\n" +
+                        "dependencies 2 {\n" +
+                        "   implementation 'com.yazantarifi:Vanite:1.0.0'\n" +
+                        "   implementation 'com.yazantarifi:Vanite-data:1.0.0'\n" +
+                        "   implementation 'com.yazantarifi:Vanite-utils:1.0.0'\n" +
+                        "   implementation 'com.yazantarifi:Vanite-ui-binding:1.0.0'\n" +
+                        "   implementation 'com.yazantarifi:Vanite-ui:1.0.0'\n" +
+                        "   implementation 'com.yazantarifi:Vanite-prefs:1.0.0'\n" +
+                        "   implementation 'com.yazantarifi:Vanite-permissions:1.0.0'\n" +
+                        "   implementation 'com.yazantarifi:Vanite-log:1.0.0'\n" +
+                        "   implementation 'com.yazantarifi:Vanite-firebase:1.0.0'\n" +
+                        "}\n" +
+                        "```\n" +
+                        "\n" +
+                        "\n" +
+                        "```\n" +
+                        "allprojects {\n" +
+                        "    repositories {\n" +
+                        "        mavenCentral()\n" +
+                        "    }\n" +
+                        "}\n" +
+                        "```\n" +
+                        "\n" +
+                        "2. Application Module\n" +
+                        "\n" +
+                        "```\n" +
+                        "dependencies 3 {\n" +
+                        "   implementation 'com.yazantarifi:Vanite:1.0.0'\n" +
+                        "   implementation 'com.yazantarifi:Vanite-data:1.0.0'\n" +
+                        "   implementation 'com.yazantarifi:Vanite-utils:1.0.0'\n" +
+                        "   implementation 'com.yazantarifi:Vanite-ui-binding:1.0.0'\n" +
+                        "   implementation 'com.yazantarifi:Vanite-ui:1.0.0'\n" +
+                        "   implementation 'com.yazantarifi:Vanite-prefs:1.0.0'\n" +
+                        "   implementation 'com.yazantarifi:Vanite-permissions:1.0.0'\n" +
+                        "   implementation 'com.yazantarifi:Vanite-log:1.0.0'\n" +
+                        "   implementation 'com.yazantarifi:Vanite-firebase:1.0.0'\n" +
+                        "}\n" +
+                        "```\n" +
+                        "\n" +
                         "# Vanite Documentation\n" +
                         "Coming Soon Vanite still Under Development\n" +
                         "\n" +
